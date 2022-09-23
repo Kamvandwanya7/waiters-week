@@ -16,7 +16,6 @@ app.post('/add', function (req, res) {
 })
 
 app.get('/weeks', function (req, res) {
-   //    req.body.user
    res.render('week')
 })
 

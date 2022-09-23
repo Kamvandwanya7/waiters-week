@@ -77,9 +77,7 @@ body{
     transform: scale(1.05) rotate(-1deg);
 }
 
-/* .logBtn:hover {
-    background-color: #2d788f
-} */
+
 
 .logBtn:active {
     background-color: #6e68a0;
