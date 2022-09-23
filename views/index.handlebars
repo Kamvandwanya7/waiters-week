@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <title>Login Form</title>
+</head>
+
+<body>
+
+
+    <div class="nav-container">
+        <ul class="nav-items">
+            <!-- Navigation -->
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="">Schedule</a></li>
+            {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
+            <!-- Dropdown menu -->
+
+        </ul>
+    </div>
+
+
+
+
+    <div class="loginbox">
+        <img src="/css/login (1) (1).jpg" alt="" class="avatar">
+        <h3>Waiters Weekly Scheme</h3>
+
+        <div>
+
+            {{!-- <li class="nav-item nav-item-dropdown">
+                <a class="dropdown-trigger" href="#">Login Settings</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-menu-item">
+                        <a href="#">Waiter</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                        <a href="#">Admin</a>
+                    </li>
+                </ul>
+            </li>
+        </div> --}}
+
+        <select name="" id="users">
+            <option value="">Waiter</option>
+            <option value="">Admin</option>
+        </select>
+        <p><i>Please enter your name below to select your workdays<i></p>
+        <form action="/add" method="post">
+            <div class="dropDown">
+
+                <form action="">
+                    {{!-- <p>Username</p> --}}
+                    <input type="text" name="" placeholder="Enter name">
+                    {{!-- <p>Password</p> --}}
+                    <input type="Password" name="" placeholder="Enter password">
+                    {{!-- <input type="submit" name="" value="Login"> --}}
+                    <a href="/week"><button class="logBtn">Sign in</button></a>
+                    <a href="#">Make a call instead?</a> <br>
+
+                </form>
+            </div>
+
+            {{!-- <input name="user" type="text" placeholder="Your name here"> <br> <br> --}}
+
+    </div>
+
+
+    </form>
+
+</body>
+
+</html>

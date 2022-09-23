@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Waiters</title>
+</head>
+
+<body>
+
+ <div class="nav-container">
+        <ul class="nav-items">
+            <!-- Navigation -->
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="">Schedule</a></li>
+            {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
+            <!-- Dropdown menu -->
+
+        </ul>
+    </div>
+
+
+    <div>
+    <form action="/weeks" method="post">
+
+        <H2>Please select at least three(3) desired working days below</H2>
+        <label class="days" for="">Sunday
+            <input type="checkbox" value="Sunday" class="day">
+        </label> 
+        <label class="days" for="">Monday
+
+            <input type="checkbox" value="Monday" class="day">
+        </label>
+         <label class="days" for="">Tuesday
+
+             <input type="checkbox" value="Tuesday" class="day">
+         </label> 
+
+         <label class="days" for="">Wednesday
+
+             <input type="checkbox" value="Wednesday" class="day">
+         </label> 
+
+         <label class="days" for="">Thursday
+
+             <input type="checkbox" value="Thursday" class="day">
+         </label>
+         <label class="days" for="">Friday
+
+             <input type="checkbox" value="Friday" class="day">
+         </label> 
+         <label class="days" for="">Saturday
+
+             <input type="checkbox" value="Sartuday" class="day">
+         </label> <br> <br>
+         <button type="submit" class="logBtn">Schedule in</button>
+    </form>
+    </div>
+
+
+</body>
+
+</html>
