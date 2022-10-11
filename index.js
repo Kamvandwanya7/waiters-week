@@ -20,6 +20,11 @@ const DATABASE_URL = process.env.DATABASE_URL || "postgresql://kamvest:kv112@loc
 const config = {
    connectionString: DATABASE_URL
 }
+if(process.env.NODE_ENV === "production"){
+   config.ssl = {
+      rejectUnauthorized: false
+   }
+}
 
 app.use(session({
    secret: 'this is my longest string that is used to test my waiters availability with routes app for browser',
