@@ -19,6 +19,7 @@ create table admins(
     id serial not null primary key,
     user_id integer,
     day_id integer
+
     
     FOREIGN KEY (user_id) references workers(id),
     FOREIGN KEY (day) references workdays(id)
