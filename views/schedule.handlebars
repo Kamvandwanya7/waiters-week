@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    {{!-- <div class="loginbox1">
+        {{#each waiterBooking}}
+
+        <div class="waiterBook"> {{this.userInput}}</div>
+
+        {{/each}}
+    </div> --}}
+
+    <div class="month">
+        <ul>
+            <li class="prev">&#10094;</li>
+            <li class="next">&#10095;</li>
+            <li>August<br><span style="font-size:18px">2022</span></li>
+        </ul>
+    </div>
+
+    <ul class="weekdaysss">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+    </ul>
+
+    <ul class="daysss">
+        <li>
+            {{#each monday}}
+            {{username}}
+            {{/each}}
+        </li>
+        <li>
+            {{#each tuesday}}
+            {{username}}
+            {{/each}}
+        </li>
+        <li>{{#each wednesday}}
+            {{username}}
+            {{/each}}
+        </li>
+        <li>{{#each thursday}}
+            {{username}}
+            {{/each}}
+        </li>
+        <li>{{#each thursday}}
+            {{username}}
+            {{/each}}
+        </li>
+        <li>{{#each friday}}
+            {{username}}
+            {{/each}}
+        </li>
+        <li>{{#each saturday}}
+            {{username}}
+            {{/each}}
+        </li>
+    </ul>
+    <a href="/delete"><button type="submit" class="loginBtn">Delete</button></a>
+
+
+</body>
+
+</html>

@@ -77,7 +77,9 @@ body{
     transform: scale(1.05) rotate(-1deg);
 }
 
-
+/* .logBtn:hover {
+    background-color: #2d788f
+} */
 
 .logBtn:active {
     background-color: #6e68a0;
@@ -88,7 +90,22 @@ body{
 
 .loginbox {
     width: 320px;
-    height: 420px;
+    height: 375px;
+    /* background: transparent; */
+    background: rgb(187, 208, 218);
+    color: black;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 20px;
+}
+
+.loginboxx{
+    width: 750px;
+    height: 220px;
     /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
@@ -168,7 +185,7 @@ select {
 }
 
 .nav-container {
-    /* background-color: #fff; */
+    background-color: rgb(146, 177, 179);
     border-radius: 4px;
     box-shadow: 0 1px 2px 0 rgba(153, 153, 153, 0.35);
     padding: 10px 10px;
@@ -187,6 +204,24 @@ li {
     /* background: transparent; */
 }
 
+.loginBtn{
+    background-color: #9ecac89a;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
 a {
     text-decoration: none;
     color: white;
@@ -198,7 +233,20 @@ a {
     display: inline;
 }
 
-
+.loginbox1 {
+    width: 800px;
+    height: 500px;
+    /* background: transparent; */
+    background: rgb(5, 42, 59);
+    color: black;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 20px;
+}
 
 h3 {
     margin: 0;
@@ -208,19 +256,116 @@ h3 {
 }
 
 h2 {
-    color: white;
+    color: black;
+}
+
+.success{
+    color: rgb(225, 240, 14);
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .day {
     color: white;
 }
-
+h1{
+    color: white;
+}
 .days {
-    color: pink;
+    color: black;
+    padding-left: 0.4em;
+    white-space: nowrap;
+    font-size: 18px;
+
 }
 
 input {
 
+}
+.error{
+    color: red;
+}
+
+.successs{
+    color: green;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+
+
+ul {list-style-type: none;}
+/* body {font-family: Verdana, sans-serif;} */
+
+/* Month header */
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #3d1abc;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* weekdaysss (Mon-Sun) */
+.weekdaysss {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdaysss li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.daysss {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.daysss li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.daysss li .active {
+  padding: 5px;
+  background: #111366;
+  color: rgb(46, 14, 14) !important
 }
 
 @media only screen and (min-width: 320px) and (max-width: 780px) {

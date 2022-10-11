@@ -19,56 +19,57 @@
         <ul class="nav-items">
             <!-- Navigation -->
             <li class="nav-item"><a href="/">Home</a></li>
-            <li class="nav-item"><a href="">Schedule</a></li>
-            {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
+            <li class="nav-item"><a href="/days">Schedule</a></li>
+            <a href="/login"><li class="nav-item">Login</li></a>
             <!-- Dropdown menu -->
 
         </ul>
     </div>
 
 
+    <h1>Waiter Availability</h1>
 
 
     <div class="loginbox">
         <img src="/css/login (1) (1).jpg" alt="" class="avatar">
-        <h3>Waiters Weekly Scheme</h3>
 
         <div>
 
-            {{!-- <li class="nav-item nav-item-dropdown">
-                <a class="dropdown-trigger" href="#">Login Settings</a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-menu-item">
-                        <a href="#">Waiter</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                        <a href="#">Admin</a>
-                    </li>
-                </ul>
-            </li>
-        </div> --}}
+            {{!-- <label>Login as:</label>
+            <select name="" id="users">
+                <a href="/waitress">
+                    <option value="">Waiter</option>
+                </a>
+                <a href="/admin">
+                    <option value="">Admin</option>
+                </a>
+            </select> --}}
+            <p><i>Please enter your name below to select your workdays<i></p>
+            <form action="/add" method="post">
+                <div class="dropDown">
 
-        <select name="" id="users">
-            <option value="">Waiter</option>
-            <option value="">Admin</option>
-        </select>
-        <p><i>Please enter your name below to select your workdays<i></p>
-        <form action="/add" method="post">
-            <div class="dropDown">
+                    <div class="error">
+                        {{messages.error}}
+                    </div>
 
-                <form action="">
-                    {{!-- <p>Username</p> --}}
-                    <input type="text" name="" placeholder="Enter name">
-                    {{!-- <p>Password</p> --}}
-                    <input type="Password" name="" placeholder="Enter password">
-                    {{!-- <input type="submit" name="" value="Login"> --}}
-                    <a href="/week"><button class="logBtn">Sign in</button></a>
-                    <a href="#">Make a call instead?</a> <br>
 
-                </form>
-            </div>
+                    <div class="successs">
+                        {{messages.successs}}
+                    </div>
+                    <input type="text" name="userInput" value="" placeholder="Enter name" >
+                       {{user.username}}
 
-            {{!-- <input name="user" type="text" placeholder="Your name here"> <br> <br> --}}
+                    <input type="Password" name="" placeholder="Enter password" >
+                    <a href="/week"><button class="logBtn">Register</button></a>
+                    {{!-- <a href="#">Make a call instead?</a> <br> --}}
+                    {{!-- <p><i>Do you have a code already? Login!</i></p><a href="/login"><button --}}
+                            {{!-- class="loginBtn">Login</button></a> --}}
+
+
+            </form>
+        </div>
+
+        {{!-- <input name="user" type="text" placeholder="Your name here"> <br> <br> --}}
 
     </div>
 

@@ -11,53 +11,69 @@
 
 <body>
 
- <div class="nav-container">
+    <div class="nav-container">
         <ul class="nav-items">
             <!-- Navigation -->
             <li class="nav-item"><a href="/">Home</a></li>
-            <li class="nav-item"><a href="">Schedule</a></li>
+            <li class="nav-item"><a href="/days">Schedule</a></li>
             {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
             <!-- Dropdown menu -->
 
         </ul>
     </div>
+    <h1>Waiter Availability</h1>
+
+    <div class="loginboxx">
+        <form action="/waiters/{{user}}" method="post">
+           <h3>{{output}}</h3> 
+            {{!-- <H2><i>Please select at least three(3) desired working days below</i></H2> --}}
 
 
-    <div>
-    <form action="/weeks" method="post">
+            {{!-- <select name="weekly">
+                {{#each day}}
+                <option name='days' value="{{id}}">{{workday}}</option>
+                {{/each}}
+            </select> --}}
 
-        <H2><i>Please select at least three(3) desired working days below</i></H2>
-        <label class="days" for="">Sunday
-            <input type="checkbox" value="Sunday" class="day">
-        </label> 
-        <label class="days" for="">Monday
+            <label class="days" for="">Sunday
+                <input type="checkbox" value="Sunday" name="day">
+            </label>
+            <label class="days" for="">Monday
 
-            <input type="checkbox" value="Monday" class="day">
-        </label>
-         <label class="days" for="">Tuesday
+                <input type="checkbox" value="Monday" name="day">
+            </label>
+            <label class="days" for="">Tuesday
 
-             <input type="checkbox" value="Tuesday" class="day">
-         </label> 
+                <input type="checkbox" value="Tuesday" name="day">
+            </label>
 
-         <label class="days" for="">Wednesday
+            <label class="days" for="">Wednesday
 
-             <input type="checkbox" value="Wednesday" class="day">
-         </label> 
+                <input type="checkbox" value="Wednesday" name="day">
+            </label>
 
-         <label class="days" for="">Thursday
+            <label class="days" for="">Thursday
 
-             <input type="checkbox" value="Thursday" class="day">
-         </label>
-         <label class="days" for="">Friday
+                <input type="checkbox" value="Thursday" name="day">
+            </label>
+            <label class="days" for="">Friday
 
-             <input type="checkbox" value="Friday" class="day">
-         </label> 
-         <label class="days" for="">Saturday
+                <input type="checkbox" value="Friday" name="day">
+            </label>
+            <label class="days" for="">Saturday
 
-             <input type="checkbox" value="Sartuday" class="day">
-         </label> <br> <br>
-         <a href="/week"><button type="submit" class="logBtn">Schedule in</button></a>
-    </form>
+                <input type="checkbox" value="Sartuday" name="day">
+                
+            </label> <br> <br>
+            <a href="/week"><button type="submit" class="logBtn">Schedule in</button></a>
+
+            {{!-- <a href="/days"><button type="submit" class="logBtn">View Schedule</button></a> --}}
+
+        </form>
+    </div>
+
+    <div class="success">
+        {{messages.success}}
     </div>
 
 

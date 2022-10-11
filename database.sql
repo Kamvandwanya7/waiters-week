@@ -6,21 +6,33 @@ password kv112;
 
 create table workers(
 	id serial not null primary key,
-    username varchar(15) not null
+    username text not null,
+    code varchar
 );
 
 create table workdays(
 	id serial not null primary key,
-    workday varchar(15) not null
+    workday text not null
 );
 
-create table boss(
+create table admins(
     id serial not null primary key,
-    employee int not null,
-    day int not null,
-    FOREIGN KEY (employee) references workers(id),
+    user_id integer,
+    day_id integer
+    
+    FOREIGN KEY (user_id) references workers(id),
     FOREIGN KEY (day) references workdays(id)
 
 );
 
 INSERT INTO workdays(workday) values ('Monday'), ('Tuesday'), ('Wednesday'), ('Thursday'), ('Friday'), ('Saturday'), ('Sunday');
+
+INSERT INTO workers(username) values('kamva');
+
+
+SELECT workers.code AS codes FROM workers JOIN admins ON admins.user_id = workers.id;
+
+alter table admins  alter column user_id type integer;
+
+
+ rename column employee to user_id integer;

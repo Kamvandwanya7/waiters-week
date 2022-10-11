@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+
+    <div class="nav-container">
+        <ul class="nav-items">
+            <!-- Navigation -->
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="/days">Schedule</a></li>
+            <li class="nav-item"><a href="/login">Login</a></li>
+            <!-- Dropdown menu -->
+
+        </ul>
+    </div>
+<div class="loginbox">
+             
+             <div class="error">
+                {{messages.error}}
+            </div>
+            <div class="successs">
+                {{messages.successs}}
+            </div>
+        <br><br><br>
+         <form action="/login" method="post">
+
+            <label>Please enter your registration user code below</label>
+            <input type="text" name="code" value="" placeholder="Enter usercode"><br><br>
+
+            <p><i>Do not have a code? Go register!</i></p><a href="/">
+            <button class="loginBtn" type="submit">Login</button></a>
+
+        </form>
+    </div>
+
+</body>
+</html>
