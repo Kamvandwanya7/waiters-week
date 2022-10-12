@@ -195,6 +195,7 @@ select {
     margin: 0 auto;
     text-align: center;
     font-size: 18px;
+    
 }
 
 ul,
@@ -287,7 +288,7 @@ input {
 }
 
 .successs{
-    color: green;
+    color: rgb(61, 175, 46);
     font-size: 20px;
     font-weight: bolder;
 }
@@ -364,7 +365,7 @@ ul {list-style-type: none;}
 /* Highlight the "current" day */
 .daysss li .active {
   padding: 5px;
-  background: #111366;
+  background: #114e66 ;
   color: rgb(46, 14, 14) !important
 }
 
