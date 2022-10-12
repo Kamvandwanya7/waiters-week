@@ -340,7 +340,7 @@ ul {list-style-type: none;}
 .weekdaysss li {
   display: inline-block;
   width: 13.6%;
-  color: #666;
+  color: black;
   text-align: center;
 }
 
@@ -358,7 +358,7 @@ ul {list-style-type: none;}
   text-align: center;
   margin-bottom: 5px;
   font-size:18px;
-  color: #777;
+  color: black;
 }
 
 /* Highlight the "current" day */
