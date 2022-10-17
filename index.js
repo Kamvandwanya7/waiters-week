@@ -44,7 +44,13 @@ app.get('/', function (req, res) {
 })
 
 app.get('/admin', function (req, res) {
-   res.redirect('/index')
+
+   res.render('requests')
+})
+
+app.post('/admin', function (req, res) {
+   
+   res.redirect('/days')
 })
 
 app.get('/waitress', function (req, res) {
@@ -89,6 +95,7 @@ app.post('/login', async function (req, res) {
    if (userEntered) {
       req.session.userEntered = userEntered
       res.redirect("/waiters/" + userEntered.username)
+      
       // res.redirect('week')
       // return;
       // } else{
@@ -118,18 +125,16 @@ app.get('/waiters/:username', async function (req, res) {
 app.post('/waiters/:name', async function (req, res) {
    let workday = req.body.day;
    let user = req.params.name;
-   // console.log(user);
-   console.log(user)
+   
 
    await waitersFunction.setWeekday(workday, user);
    req.flash('success', "Booking submitted! feedback will be provided within the next 48 hours")
-   // //    req.body.user
    res.redirect('back')
 })
 
 app.get('/delete', async function (req, res) {
    await waitersFunction.deleteAllUsers()
-   req.flash('success', "You have now cleared all your expenses!")
+   req.flash('successs', "You have now cleared all your expenses!")
    res.redirect('/days')
 })
 
@@ -152,6 +157,12 @@ app.get('/days', async function (req, res) {
       saturday,
       sunday
    })
+})
+
+
+app.get('/logout', function (req, res) {
+   delete req.session.user
+   res.redirect('/')
 })
 
 

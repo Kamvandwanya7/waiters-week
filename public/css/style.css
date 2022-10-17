@@ -104,12 +104,27 @@ body{
 }
 
 .loginboxx{
-    width: 750px;
-    height: 220px;
+    width: 1000px;
+    height: 230px;
     /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
     top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 20px;
+}
+
+.loginboxxx{
+    width: 1050px;
+    height: 400px;
+    /* background: transparent; */
+    background: rgb(187, 208, 218);
+    color: black;
+    top: 55%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -191,7 +206,7 @@ select {
     padding: 10px 10px;
     border: 1px solid #eee;
     display: block;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     text-align: center;
     font-size: 18px;
@@ -213,6 +228,23 @@ li {
 
 .loginBtn{
     background-color: #9ecac89a;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.loginBtn2{
+    background-color: #0214139a;
     border-radius: 100px;
     color: white;
     cursor: pointer;
@@ -307,7 +339,7 @@ ul {list-style-type: none;}
 
 /* Month header */
 .month {
-  padding: 50px 25px;
+  padding: 10px 5px;
   width: 100%;
   background: #928ca8;
   text-align: center;
@@ -374,6 +406,16 @@ ul {list-style-type: none;}
   padding: 5px;
   background: #114e66 ;
   color: rgb(46, 14, 14) !important
+}
+
+
+table{
+
+    border-collapse: collapse;
+}
+table td{
+    padding: 20px 50px;
+    margin: 20px 20px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 780px) {

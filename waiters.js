@@ -10,18 +10,18 @@ module.exports = function WaitersAvailability(db) {
 
   async function getWaiterName(code) {
     let results = await db.oneOrNone('SELECT username FROM workers WHERE code=$1', [code])
-    console.log(results)
+    // console.log(results)
     return results.username;
   }
 
   async function setWeekday(day, user) {
     let user_id = await db.one('SELECT id FROM workers WHERE username=$1', [user])
-    console.log(user_id);
+    // console.log(user_id);
 
     for (let i = 0; i < day.length; i++) {
       const weekday = day[i];
       let day_id = await db.one('SELECT id FROM workdays WHERE workday=$1', [weekday])
-      console.log(day_id);
+      // console.log(day_id);
       let result = await db.none('INSERT INTO admins(day_id, user_id) values($1, $2)', [day_id.id, user_id.id])
 
     }
@@ -38,7 +38,7 @@ module.exports = function WaitersAvailability(db) {
 
   async function findUser(name) {
     let output = await db.one("SELECT COUNT(*) FROM workers WHERE username=$1", [name])
-    console.log(output)
+    // console.log(output)
     return output;
   }
 

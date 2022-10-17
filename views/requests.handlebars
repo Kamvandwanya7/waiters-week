@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="nav-container">
+        <ul class="nav-items">
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="/days">Schedule</a></li>
+
+            {{!-- <li class="nav-item"><a href=">Schedule</a></li> --}}
+            {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
+            <!-- Dropdown menu -->
+
+        </ul>
+    </div>
+
+
+    <h1>Waiter Availability</h1>
+    <div class="loginbox">
+    <form action="/admin" method="post">
+
+        <label>Enter details below to check who is schedulled for work this week</label>
+
+        <input type="text" name="userInput" value="" placeholder="Enter name">
+        {{user.username}}
+
+        <input type="Password" name="" placeholder="Enter password">
+        <a href="/week"><button class="logBtn">Admin Login</button></a>
+
+    </div>
+    </form>
+
+
+</body>
+
+</html>

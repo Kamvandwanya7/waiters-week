@@ -11,12 +11,12 @@
 
 <body>
 
-<div class="nav-container">
+    <div class="nav-container">
         <ul class="nav-items">
             <!-- Navigation -->
             <li class="nav-item"><a href="/">Home</a></li>
             <li class="nav-item"><a href="/login">Login</a></li>
-            <li class="nav-item"><a href="/days">Schedule</a></li>
+            {{!-- <li class="nav-item"><a href="/days">Schedule</a></li> --}}
 
             {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
             <!-- Dropdown menu -->
@@ -24,65 +24,66 @@
         </ul>
     </div>
     <h1>Waiter Availability</h1>
-    {{!-- <div class="loginbox1">
-        {{#each waiterBooking}}
+    
 
-        <div class="waiterBook"> {{this.userInput}}</div>
 
-        {{/each}}
-    </div> --}}
+    <div class='loginboxxx'>
+        <div class="successs">
+            {{messages.successs}}
+        </div>
 
-    <div class="month">
-        <ul>
-            <li class="prev">&#10094;</li>
-            <li class="next">&#10095;</li>
-            <li>August<br><span style="font-size:18px">2022</span></li>
-        </ul>
-    </div>
+        {{!-- <div class="month">
+            <ul>
+                <li class="prev">&#10094;</li>
+                <li class="next">&#10095;</li>
+                <li>August<br><span style="font-size:18px">2022</span></li>
+            </ul>
+        </div> --}}
+        <table class="useExpense" border="1">
 
-    <ul class="weekdaysss">
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-        <li>Su</li>
-    </ul>
+            <tr class="weekdaysss">
+                <td>Mo</td>
+                <td>Tu</td>
+                <td>We</td>
+                <td>Th</td>
+                <td>Fr</td>
+                <td>Sa</td>
+                <td>Su</td>
+            </tr>
 
-    <ul class="daysss">
-        <li>
-            {{#each monday}}
-            {{username}}
-            {{/each}}
-        </li>
-        <li>
-            {{#each tuesday}}
-            {{username}}
-            {{/each}}
-        </li>
-        <li>{{#each wednesday}}
-            {{username}}
-            {{/each}}
-        </li>
-        <li>{{#each thursday}}
-            {{username}}
-            {{/each}}
-        </li>
-        <li>{{#each thursday}}
-            {{username}}
-            {{/each}}
-        </li>
-        <li>{{#each friday}}
-            {{username}}
-            {{/each}}
-        </li>
-        <li>{{#each saturday}}
-            {{username}}
-            {{/each}}
-        </li>
-    </ul>
-    <a href="/delete"><button type="submit" class="loginBtn">Delete</button></a>
+            <tr class="daysss">
+                <td>
+                    {{#each monday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+                <td>
+                    {{#each tuesday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+                <td>{{#each wednesday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+                <td>{{#each thursday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+                <td>{{#each thursday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+                <td>{{#each friday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+                <td>{{#each saturday}}
+                    {{username}}
+                    {{/each}}
+                </td>
+        </table>
+        <a href="/delete"><button type="submit" class="loginBtn2">Delete</button></a>
 
 
 </body>
