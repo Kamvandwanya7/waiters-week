@@ -105,7 +105,7 @@ body{
 
 .loginboxx{
     width: 1000px;
-    height: 230px;
+    height: 215px;
     /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
@@ -189,6 +189,20 @@ input[type='password'] {
     top: -0%;
     left: calc(40%, -40px);
     right: calc(90px)
+}
+
+
+.available{
+    /* color: green; */
+    background-color: green;
+}
+
+.fully-booked{
+    background-color: #ffc107;
+}
+
+.overbooked{
+    background-color: red;
 }
 
 select {

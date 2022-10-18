@@ -64,51 +64,40 @@ app.post('/add', async function (req, res) {
 
    let result = await waitersFunction.findUser(username)
    if (Number(result.count) !== 0) {
-      req.flash('error', `User ${username} already exists, go login to the navigation bar`)
+      req.flash('error', `User ${username} already exists`)
       res.redirect('/')
    } else {
+      req.session.code = code
       await waitersFunction.setWaiterName(username, code)
-      req.flash('successs', "Waiter registered! Use code " + code + " to login!")
-      res.redirect('/')
+      res.redirect('/login')
    }
 })
 
 app.get('/login', async function (req, res) {
+   const codei = req.session.code;
 
-   //    let {code}= req.query;
-
-   //    let user =await waitersFunction.getWaiterName(code) 
-
-   //   res.redirect("/waiters/"+ user)
-
-   //   // res.redirect('/waiters/:username')
-
+   if(codei){
+      req.flash('successs', "Use code " + codei + " to login!")
+   }
    res.render("log")
+
 })
 
 
 app.post('/login', async function (req, res) {
    let { code } = req.body;
    let userEntered = await waitersFunction.findCode(code)
-   // get username from db
-   // let user =await waitersFunction.getWaiterName(code) 
+
    if (userEntered) {
+      delete req.session.code;
       req.session.userEntered = userEntered
       res.redirect("/waiters/" + userEntered.username)
       
-      // res.redirect('week')
-      // return;
-      // } else{
-      // res.render('index')
+    
    } else {
       req.flash("error", "Code was not found")
       res.redirect("/login")
    }
-
-   // let user= req.params.userInput;
-
-
-   // res.redirect('/waiters/:username')
 })
 
 app.get('/waiters/:username', async function (req, res) {
@@ -118,7 +107,6 @@ app.get('/waiters/:username', async function (req, res) {
       user,
       output
    });
-      // user : req.session.user} )
 })
 
 
@@ -134,7 +122,7 @@ app.post('/waiters/:name', async function (req, res) {
 
 app.get('/delete', async function (req, res) {
    await waitersFunction.deleteAllUsers()
-   req.flash('successs', "You have now cleared all your expenses!")
+   req.flash('successs', "You have now cleared all your data!")
    res.redirect('/days')
 })
 
@@ -147,6 +135,7 @@ app.get('/days', async function (req, res) {
    let friday = await waitersFunction.joinUsers('Friday')
    let saturday = await waitersFunction.joinUsers('Saturday')
    let sunday = await waitersFunction.joinUsers('Sunday')
+   let colors= await waitersFunction.dayColor()
 
    res.render('schedule', {
       monday,
@@ -155,7 +144,8 @@ app.get('/days', async function (req, res) {
       thursday,
       friday,
       saturday,
-      sunday
+      sunday,
+      colors
    })
 })
 

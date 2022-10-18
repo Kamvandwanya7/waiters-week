@@ -61,6 +61,38 @@ module.exports = function WaitersAvailability(db) {
   }
 
 
+  // async function (){
+  //   let output
+  // }
+
+  async function checkDay(day){
+    let output= await db.oneOrNone('SELECT id from workdays where workday= $1', [day]);
+
+    let results= await db.oneOrNone('SELECT COUNT(*) FROM admins JOIN workdays on admins.day_id= workdays.id WHERE admins.day_id=$1', [output.id])
+    return results.count;
+  }
+
+ async function dayColor(){
+  let days= await db.manyOrNone("SELECT workday FROM workdays")
+// console.log(days);
+  let status= []
+  for(i=0; i<days.length; i++){
+    let day=days[i].workday;
+    let count= await checkDay(day);
+    if(Number(count)>= 0 && Number(count)<4){
+      status.push({weekday: day, state: "available"});
+    }else if(Number(count)==4) {
+      status.push({weekday: day, state: "fully-booked"});
+    }else if (Number(count>4)){
+      status.push({weekday: day, state: "overbooked"})
+     }
+    }
+    return status
+  }
+
+  
+
+  
 
 
   return {
@@ -71,7 +103,10 @@ module.exports = function WaitersAvailability(db) {
     deleteAllUsers,
     findUser,
     findCode,
-    joinUsers
+    joinUsers,
+    dayColor,
+    checkDay,
+    dayColor
 
   }
 }

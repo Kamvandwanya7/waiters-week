@@ -14,8 +14,10 @@
     <div class="nav-container">
         <ul class="nav-items">
             <!-- Navigation -->
-            <li class="nav-item"><a href="/">Home</a></li>
             <li class="nav-item"><a href="/login">Login</a></li>
+            <a href="/logout"><button class="logBtn" type="submit">Logout</button></a>
+            {{!-- <li class="nav-item"><a href="/">Home</a></li> --}}
+
             {{!-- <li class="nav-item"><a href="/days">Schedule</a></li> --}}
 
             {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
@@ -24,6 +26,11 @@
         </ul>
     </div>
     <h1>Waiter Availability</h1>
+
+    <div class="success">
+        {{messages.success}}
+    </div> <br>
+
 
     <div class="loginboxx">
         <form action="/waiters/{{user}}" method="post">
@@ -73,12 +80,7 @@
 
         </form> <br>
 
-        <a href="/logout"><button class="logBtn" type="submit">Logout</button></a>
 
-    </div>
-
-    <div class="success">
-        {{messages.success}}
     </div>
 
 

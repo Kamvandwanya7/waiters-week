@@ -37,3 +37,7 @@ alter table admins  alter column user_id type integer;
 
 
  rename column employee to user_id integer;
+
+UPDATE workers
+SET worday = tuesday ...
+WHERE code= 123;
