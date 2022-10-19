@@ -55,7 +55,7 @@ module.exports = function WaitersAvailability(db) {
     INNER JOIN workdays ON admins.day_id = workdays.id where workdays.workday= $1`, [weeks])
     return output;
   }
-  // WHERE workdays= $1
+
   async function deleteAllUsers() {
     return await db.none('DELETE FROM admins')
   }
