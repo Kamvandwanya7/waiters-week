@@ -79,11 +79,11 @@ module.exports = function WaitersAvailability(db) {
   for(i=0; i<days.length; i++){
     let day=days[i].workday;
     let count= await checkDay(day);
-    if(Number(count)>= 0 && Number(count)<4){
+    if(Number(count)>= 0 && Number(count)<3){
       status.push({weekday: day, state: "available"});
-    }else if(Number(count)==4) {
+    }else if(Number(count)==3) {
       status.push({weekday: day, state: "fully-booked"});
-    }else if (Number(count>4)){
+    }else if (Number(count>3)){
       status.push({weekday: day, state: "overbooked"})
      }
     }
