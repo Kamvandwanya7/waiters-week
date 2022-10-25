@@ -66,7 +66,7 @@ app.post('/add', async function (req, res) {
 
    let result = await waitersFunction.findUser(username)
    if (Number(result.count) !== 0) {
-      // req.flash('error', `User ${username} already exists`)
+      // req.flash('success', `User ${username} already exists`)
       res.redirect('/waiters/' + username)
    } else {
       req.session.code = code
@@ -135,7 +135,7 @@ app.post('/waiters/:name', async function (req, res) {
    
 
    await waitersFunction.setWeekday(workday, user);
-   req.flash('success', "Booking submitted! feedback will be provided within the next 48 hours")
+   req.flash('success', "Thank you! Booking submitted successfully")
    res.redirect('back')
 })
 

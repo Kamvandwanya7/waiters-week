@@ -2,9 +2,9 @@ module.exports = function WaitersAvailability(db) {
 
   async function setWaiterName(name, code) {
     // console.log(name)
-    let result = await db.none('INSERT INTO workers(username, code) values($1, $2)', [name, code])
+    await db.none('INSERT INTO workers(username, code) values($1, $2)', [name, code])
     // console.log(result)
-    return result;
+    // return result;
   }
 
 
@@ -27,13 +27,15 @@ return user_id.id
 
     for (let i = 0; i < day.length; i++) {
       const weekday = day[i];
+console.log(weekday)
       let day_id = await db.one('SELECT id FROM workdays WHERE workday=$1', [weekday])
       // console.log(day_id);
-      let result = await db.none('INSERT INTO admins(day_id, user_id) values($1, $2)', [day_id.id, user_id.id])
+       await db.none('INSERT INTO admins(day_id, user_id) values($1, $2)', [day_id.id, user_id.id])
 
     }
   
-  }
+  }    // return result;
+
 
 
   async function getWeekday() {
