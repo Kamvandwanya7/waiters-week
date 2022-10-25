@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>Waiters</title>
 </head>
 
@@ -14,7 +17,7 @@
     <div class="nav-container">
         <ul class="nav-items">
             <!-- Navigation -->
-            <li class="nav-item"><a href="/login">Login</a></li>
+            {{!-- <li class="nav-item"><a href="/login">Login</a></li> --}}
             <a href="/logout"><button class="logBtn" type="submit">Logout</button></a>
             {{!-- <li class="nav-item"><a href="/">Home</a></li> --}}
 
@@ -34,49 +37,19 @@
 
     <div class="loginboxx">
         <form action="/waiters/{{user}}" method="post">
-           <h3>{{output}}</h3> 
-            {{!-- <H2><i>Please select at least three(3) desired working days below</i></H2> --}}
+            <h3>{{output}}</h3>
+          
 
+            {{#each week}}
+                <label class="days" for="">{{this.workday}}
+                    <input type="checkbox" value="{{this.workday}}" {{this.status}} name="day" >
+                </label>
+            {{/each}}
 
-            {{!-- <select name="weekly">
-                {{#each day}}
-                <option name='days' value="{{id}}">{{workday}}</option>
-                {{/each}}
-            </select> --}}
-
-            <label class="days" for="">Sunday
-                <input type="checkbox" value="Sunday" name="day">
-            </label>
-            <label class="days" for="">Monday
-
-                <input type="checkbox" value="Monday" name="day">
-            </label>
-            <label class="days" for="">Tuesday
-
-                <input type="checkbox" value="Tuesday" name="day">
-            </label>
-
-            <label class="days" for="">Wednesday
-
-                <input type="checkbox" value="Wednesday" name="day">
-            </label>
-
-            <label class="days" for="">Thursday
-
-                <input type="checkbox" value="Thursday" name="day">
-            </label>
-            <label class="days" for="">Friday
-
-                <input type="checkbox" value="Friday" name="day">
-            </label>
-            <label class="days" for="">Saturday
-
-                <input type="checkbox" value="Sartuday" name="day">
-                
-            </label> <br> <br>
+            
+            <br> <br>
             <a href="/week"><button type="submit" class="logBtn">Schedule in</button></a>
 
-            {{!-- <a href="/days"><button type="submit" class="logBtn">View Schedule</button></a> --}}
 
         </form> <br>
 

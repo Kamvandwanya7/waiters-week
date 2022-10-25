@@ -1,5 +1,8 @@
 sudo -u postgres createdb waiters;
 
+sudo -u postgres createdb waiters_tests;
+
+
 sudo -u postgres createuser kamvest -P;
 
 password kv112;
@@ -20,7 +23,7 @@ create table admins(
     user_id integer,
     day_id integer
 
-    
+
     FOREIGN KEY (user_id) references workers(id),
     FOREIGN KEY (day) references workdays(id)
 

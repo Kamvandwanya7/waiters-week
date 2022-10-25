@@ -1,5 +1,5 @@
 body {
-    background-image: url(/css/10.jpg);
+    background-image: url(/css/iu.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -90,7 +90,7 @@ body{
 
 .loginbox {
     width: 320px;
-    height: 375px;
+    height: 300px;
     /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
@@ -105,7 +105,7 @@ body{
 
 .loginboxx{
     width: 1000px;
-    height: 215px;
+    height: 200px;
     /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
@@ -341,11 +341,15 @@ input {
 }
 
 .successs{
-    color: rgb(61, 175, 46);
+    color: rgb(192, 135, 29);
     font-size: 20px;
     font-weight: bolder;
 }
 
+
+/* h1{
+    font-family: 'Kalam', cursive;
+} */
 
 
 ul {list-style-type: none;}
@@ -353,7 +357,7 @@ ul {list-style-type: none;}
 
 /* Month header */
 .month {
-  padding: 10px 5px;
+  padding: 8px 5px;
   width: 100%;
   background: #928ca8;
   text-align: center;
@@ -400,7 +404,7 @@ ul {list-style-type: none;}
 
 /* Days (1-31) */
 .daysss {
-  padding: 10px 0;
+  padding: 8px 0;
   background: #eee;
   margin: 0;
 }
@@ -428,7 +432,7 @@ table{
     border-collapse: collapse;
 }
 table td{
-    padding: 20px 50px;
+    padding: 20px 40px;
     margin: 20px 20px;
 }
 

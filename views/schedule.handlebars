@@ -13,68 +13,62 @@
 
     <div class="nav-container">
         <ul class="nav-items">
-            <!-- Navigation -->
-            {{!-- <li class="nav-item"><a href="/">Home</a></li> --}}
-            <li class="nav-item"><a href="/login">Login</a></li>
             <a href="/logout"><button class="logBtn" type="submit">Logout</button></a>
-
-            {{!-- <li class="nav-item"><a href="/days">Schedule</a></li> --}}
-
-            {{!-- <li class="nav-item"><a href="#">Contact</a></li> --}}
-            <!-- Dropdown menu -->
 
         </ul>
     </div>
-    <h1>Waiter Availability</h1>
-    
 
 
     <div class='loginboxxx'>
         <div class="successs">
             {{messages.successs}}
         </div>
+        {{!-- <div> --}}
 
-        <table class="useExpense" border="1">
-            <tr class="weekdaysss">
-                {{#each colors}} 
-                <th class="{{this.state}} workday">{{this.weekday}}</th>
-                {{/each}}
-            </tr> 
 
-            <tr class="daysss">
-                <td>
-                    {{#each monday}}
-                    {{username}}
+            <table class="useExpense" border="1">
+                <tr class="weekdaysss">
+                    {{#each colors}}
+                    <th class="{{this.state}} workday">{{this.weekday}}</th>
                     {{/each}}
-                </td>
-                <td>
-                    {{#each tuesday}}
-                    {{username}}
-                    {{/each}}
-                </td>
-                <td>{{#each wednesday}}
-                    {{username}}
-                    {{/each}}
-                </td>
-                <td>{{#each thursday}}
-                    {{username}}
-                    {{/each}}
-                </td>
-                <td>{{#each thursday}}
-                    {{username}}
-                    {{/each}}
-                </td>
-                <td>{{#each friday}}
-                    {{username}}
-                    {{/each}}
-                </td>
-                <td>{{#each saturday}}
-                    {{username}}
-                    {{/each}}
-                </td>
-            </tr>
-        </table> <br>
+                </tr>
+
+                <tr class="daysss">
+                    <td>
+                        {{#each monday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                    <td>
+                        {{#each tuesday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                    <td>{{#each wednesday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                    <td>{{#each thursday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                    <td>{{#each friday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                    <td>{{#each saturday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                    <td>{{#each sunday}}
+                        {{username}}
+                        {{/each}}
+                    </td>
+                </tr>
+            </table> <br>
+        
         <a href="/delete"><button type="submit" class="loginBtn2">Delete</button></a>
+    </div>
 
 
 </body>

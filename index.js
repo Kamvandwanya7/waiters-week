@@ -61,11 +61,13 @@ app.get('/waitress', function (req, res) {
 app.post('/add', async function (req, res) {
    const username = req.body.userInput.charAt().toUpperCase() + req.body.userInput.slice(1).toLowerCase();;
    const code = uid();
+   // let userEntered = await waitersFunction.findCode(code)
+
 
    let result = await waitersFunction.findUser(username)
    if (Number(result.count) !== 0) {
-      req.flash('error', `User ${username} already exists`)
-      res.redirect('/')
+      // req.flash('error', `User ${username} already exists`)
+      res.redirect('/waiters/' + username)
    } else {
       req.session.code = code
       await waitersFunction.setWaiterName(username, code)
@@ -102,10 +104,27 @@ app.post('/login', async function (req, res) {
 
 app.get('/waiters/:username', async function (req, res) {
    let user = req.params.username.charAt().toUpperCase() + req.params.username.slice(1).toLowerCase();;
-   let output = `Hi ${user} please proceed select up to 3 desired working days below!`
+   let output = `Hi ${user} please proceed select up to 3 desired working days below!`;
+   let userId= await waitersFunction.userId(req.params.username)
+   let result= await waitersFunction.getDays(userId)
+   // console.log(result);
+   let week= await waitersFunction.weekdays()
+   week = week.map(day => {
+
+      const checked = result.filter(item => item.workday == day.workday)
+
+      return {
+         ...day,
+         status: checked.length > 0 ? 'checked' : ''
+      }
+   })
+   // console.log(week);
+
+
    res.render('week', {
       user,
-      output
+      output,
+      week
    });
 })
 
@@ -136,7 +155,7 @@ app.get('/days', async function (req, res) {
    let saturday = await waitersFunction.joinUsers('Saturday')
    let sunday = await waitersFunction.joinUsers('Sunday')
    let colors= await waitersFunction.dayColor()
-
+   console.log(friday);
    res.render('schedule', {
       monday,
       tuesday,
@@ -154,7 +173,6 @@ app.get('/logout', function (req, res) {
    delete req.session.user
    res.redirect('/')
 })
-
 
 
 
