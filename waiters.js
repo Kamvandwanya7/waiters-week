@@ -27,7 +27,7 @@ return user_id.id
 
     for (let i = 0; i < day.length; i++) {
       const weekday = day[i];
-console.log(weekday)
+// console.log(weekday)
       let day_id = await db.one('SELECT id FROM workdays WHERE workday=$1', [weekday])
       // console.log(day_id);
        await db.none('INSERT INTO admins(day_id, user_id) values($1, $2)', [day_id.id, user_id.id])

@@ -30,11 +30,7 @@ describe('My database tests', async function () {
         await waiterOutput.setWeekday(["Monday", 'Tuesday'], "Mihle");
         await waiterOutput.setWeekday(["Monday", 'Friday'], "Zompo");
 
-        //     await waiterOutput.setWeekday("Lusizo","Monday");
-        // await waiterOutput.setWeekday("Wednesday", "Mihle");
-        // await waiterOutput.setWeekday("Mihle", "Sunday");
-        // let x = await waiterOutput.joinUsers('Monday')
-
+     
         assert.deepEqual([
             {
                 username: 'Mihle',
@@ -51,6 +47,36 @@ describe('My database tests', async function () {
     // this.beforeEach(async function () {
     //         await db.none('DELETE FROM greetings')
     //     });
+
+
+
+    it('It should be able submit tuesday as a working day and return names of people who requested to work on tuesday', async function () {
+        let waiterOutput = WaitersAvailability(db);
+        await waiterOutput.setWaiterName("Zihle", "aX8F");
+        await waiterOutput.setWaiterName("Ano", "Wo8F");
+
+        await waiterOutput.setWeekday(["Monday", 'Tuesday'], "Mihle");
+        await waiterOutput.setWeekday(["Tuesday", 'Friday'], "Ano");
+        await waiterOutput.setWeekday(["Tuesday", 'Wednesday'], "Iminam");
+
+
+     
+        assert.deepEqual([
+            {
+                username: 'Zihle',
+                workday: 'Tuesday'
+            },
+            {
+                username: "Ano",
+                workday: "Tuesday"
+            },
+            {
+                username: "Iminam",
+                workday: "Tuesday"
+            }
+
+        ], await waiterOutput.joinUsers('Tuesday'));
+    });
 
     it('It should be able to clear waiter names', async function () {
         let waiterOutput = WaitersAvailability(db);
