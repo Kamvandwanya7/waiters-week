@@ -44,10 +44,7 @@ describe('My database tests', async function () {
         ], await waiterOutput.joinUsers('Monday')
         );
     });
-    // this.beforeEach(async function () {
-    //         await db.none('DELETE FROM greetings')
-    //     });
-
+  
 
 
     it('It should be able submit tuesday as a working day and return names of people who requested to work on tuesday', async function () {
