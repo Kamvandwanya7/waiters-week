@@ -7,8 +7,7 @@ const session = require('express-session')
 const ShortUniqueId = require('short-unique-id')
 const uid = new ShortUniqueId({ length: 4 })
 const pgp = require('pg-promise')({});
-const WaitersAvailability = require('./waiters')
-// const db = pgp(config);
+
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
@@ -37,142 +36,40 @@ app.use(flash());
 app.use(express.static('public'))
 
 const db = pgp(config);
+
+const WaitersAvailability = require('./waiters')
 const waitersFunction = WaitersAvailability(db)
 
-app.get('/', function (req, res) {
-   res.render('index')
-})
+const WaiterRoutes= require('./routes/waiter-routes')
+const waiterRoutes= WaiterRoutes(waitersFunction)
 
-app.get('/admin', function (req, res) {
+app.get('/', waiterRoutes.index)
 
-   res.render('requests')
-})
+app.get('/admin', waiterRoutes.request)
 
-app.post('/admin', function (req, res) {
-   
-   res.redirect('/days')
-})
+app.post('/admin', waiterRoutes.admin)
 
-app.get('/waitress', function (req, res) {
-   res.redirect('/index')
-})
+app.get('/waitress', waiterRoutes.waitres)
 
 
-app.post('/add', async function (req, res) {
-   const username = req.body.userInput.charAt().toUpperCase() + req.body.userInput.slice(1).toLowerCase();;
-   const code = uid();
-   // let userEntered = await waitersFunction.findCode(code)
+app.post('/add', waiterRoutes.addName)
+
+app.get('/login', waiterRoutes.logIn)
 
 
-   let result = await waitersFunction.findUser(username)
-   if (Number(result.count) !== 0) {
-      // req.flash('success', `User ${username} already exists`)
-      res.redirect('/waiters/' + username)
-   } else {
-      req.session.code = code
-      await waitersFunction.setWaiterName(username, code)
-      res.redirect('/login')
-   }
-})
+app.post('/login', waiterRoutes.logUser)
 
-app.get('/login', async function (req, res) {
-   const codei = req.session.code;
-
-   if(codei){
-      req.flash('successs', "Use code " + codei + " to login!")
-   }
-   res.render("log")
-
-})
+app.get('/waiters/:username', waiterRoutes.chooseDay)
 
 
-app.post('/login', async function (req, res) {
-   let { code } = req.body;
-   let userEntered = await waitersFunction.findCode(code)
+app.post('/waiters/:name', waiterRoutes.submitDay)
 
-   if (userEntered) {
-      delete req.session.code;
-      req.session.userEntered = userEntered
-      res.redirect("/waiters/" + userEntered.username)
-      
-    
-   } else {
-      req.flash("error", "Code was not found")
-      res.redirect("/login")
-   }
-})
+app.get('/delete', waiterRoutes.deleteAll)
 
-app.get('/waiters/:username', async function (req, res) {
-   let user = req.params.username.charAt().toUpperCase() + req.params.username.slice(1).toLowerCase();;
-   let output = `Hi ${user} please proceed select up to 3 desired working days below!`;
-   let userId= await waitersFunction.userId(req.params.username)
-   let result= await waitersFunction.getDays(userId)
-   // console.log(result);
-   let week= await waitersFunction.weekdays()
-   week = week.map(day => {
-
-      const checked = result.filter(item => item.workday == day.workday)
-
-      return {
-         ...day,
-         status: checked.length > 0 ? 'checked' : ''
-      }
-   })
-   // console.log(week);
+app.get('/days', waiterRoutes.dayColours)
 
 
-   res.render('week', {
-      user,
-      output,
-      week
-   });
-})
-
-
-app.post('/waiters/:name', async function (req, res) {
-   let workday = req.body.day;
-   let user = req.params.name;
-   
-
-   await waitersFunction.setWeekday(workday, user);
-   req.flash('success', "Thank you! Booking submitted successfully")
-   res.redirect('back')
-})
-
-app.get('/delete', async function (req, res) {
-   await waitersFunction.deleteAllUsers()
-   req.flash('successs', "You have now cleared all your data!")
-   res.redirect('/days')
-})
-
-app.get('/days', async function (req, res) {
-
-   let monday = await waitersFunction.joinUsers('Monday')
-   let tuesday = await waitersFunction.joinUsers('Tuesday')
-   let wednesday = await waitersFunction.joinUsers('Wednesday')
-   let thursday = await waitersFunction.joinUsers('Thursday')
-   let friday = await waitersFunction.joinUsers('Friday')
-   let saturday = await waitersFunction.joinUsers('Saturday')
-   let sunday = await waitersFunction.joinUsers('Sunday')
-   let colors= await waitersFunction.dayColor()
-   console.log(friday);
-   res.render('schedule', {
-      monday,
-      tuesday,
-      wednesday,
-      thursday,
-      friday,
-      saturday,
-      sunday,
-      colors
-   })
-})
-
-
-app.get('/logout', function (req, res) {
-   delete req.session.user
-   res.redirect('/')
-})
+app.get('/logout', waiterRoutes.logOut)
 
 
 

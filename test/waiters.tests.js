@@ -30,14 +30,14 @@ describe('My database tests', async function () {
         await waiterOutput.setWeekday(["Monday", 'Tuesday'], "Mihle");
         await waiterOutput.setWeekday(["Monday", 'Friday'], "Zompo");
 
-     
+
         assert.deepEqual([
             {
-                username: 'Mihle',
+                username: "Zompo",
                 workday: 'Monday'
             },
             {
-                username: "Zompo",
+                username: 'Mihle',
                 workday: "Monday"
             }
 
@@ -52,28 +52,17 @@ describe('My database tests', async function () {
 
     it('It should be able submit tuesday as a working day and return names of people who requested to work on tuesday', async function () {
         let waiterOutput = WaitersAvailability(db);
-        await waiterOutput.setWaiterName("Zihle", "aX8F");
-        await waiterOutput.setWaiterName("Ano", "Wo8F");
+        await waiterOutput.setWaiterName("Soyama", "3Xc2");
 
-        await waiterOutput.setWeekday(["Monday", 'Tuesday'], "Mihle");
-        await waiterOutput.setWeekday(["Tuesday", 'Friday'], "Ano");
-        await waiterOutput.setWeekday(["Tuesday", 'Wednesday'], "Iminam");
+        await waiterOutput.setWeekday(["Monday", 'Tuesday'], "Soyama");
 
 
-     
+
         assert.deepEqual([
             {
-                username: 'Zihle',
+                username: 'Soyama',
                 workday: 'Tuesday'
             },
-            {
-                username: "Ano",
-                workday: "Tuesday"
-            },
-            {
-                username: "Iminam",
-                workday: "Tuesday"
-            }
 
         ], await waiterOutput.joinUsers('Tuesday'));
     });
@@ -88,12 +77,61 @@ describe('My database tests', async function () {
     });
 
 
-    it('It should be able to return list of greeted names', async function () {
+    it('It should be able to change color of fully booked working days', async function () {
         let waiterOutput = WaitersAvailability(db);
-        await waiterOutput.updateCount("Sange")
-        await waiterOutput.updateCount("Zona")
-        await waiterOutput.updateCount("Sbahle")
+        await waiterOutput.setWaiterName("Sange", "zXc2");
+        await waiterOutput.setWaiterName("Zona", "4X0r");
+        await waiterOutput.setWaiterName("Sbahle", "1X0c");
+        await waiterOutput.setWaiterName("Senzo", "wQc1");
+        await waiterOutput.setWaiterName("Qondile", "1lP1");
 
-        assert.deepEqual([{ "username": "Sange" }, { "username": "Zona" }, { "username": "Sbahle" }], await waiterOutput.namesList([{ "names": "Thango" }, { "names": "Sbahle" }, { "names": "Zuko" }]));
+
+
+
+        await waiterOutput.setWeekday(["Monday", "Friday", "Sunday"], "Sange");
+        await waiterOutput.setWeekday(["Monday", "Tuesday", "Friday"], "Zona");
+        await waiterOutput.setWeekday(["Monday", "Tuesday", "Sunday"], "Sbahle");
+        await waiterOutput.setWeekday(["Monday", "Sunday", "Wednesday"], "Senzo");
+        await waiterOutput.setWeekday(["Friday", "Tuesday", "Wednesday"], "Qondile");
+
+
+
+
+        assert.deepEqual(
+            [{
+
+                state: "overbooked",
+                weekday: "Monday"
+            },
+
+
+            {
+                state: "fully-booked",
+                weekday: "Tuesday"
+            },
+            {
+                state: "available",
+                weekday: "Wednesday"
+            },
+            {
+                state: "available",
+                weekday: "Thursday"
+
+            },
+            {
+                state: "fully-booked",
+                "weekday": "Friday"
+            },
+            {
+                state: "available",
+                weekday: "Saturday"
+            },
+            {
+                state: "fully-booked",
+                weekday: "Sunday"
+            }
+
+
+            ], await waiterOutput.dayColor())
     });
 });

@@ -14,44 +14,6 @@ body {
     width: 100vw;
 }
 
-/* .logBtn {
-    font-size: 17px;
-    display: inline-block;
-    padding: 15px 25px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4f5080;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-} */
-
-/* 
-body{
-    margin: 0;
-    padding: 0;
-    background: url(/css/img.jpg);
-    background-size: cover;
-     background-position: center; 
-    font-family: sans-serif;
-    background-position: cover;
-    background-repeat: no-repeat;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    backdrop-filter: none;
-    height: 100%;
-    width: 50%; */
-/* } */
-
-
-
 .logBtn {
 
     background-color: #c2fbd7;
@@ -77,9 +39,7 @@ body{
     transform: scale(1.05) rotate(-1deg);
 }
 
-/* .logBtn:hover {
-    background-color: #2d788f
-} */
+
 
 .logBtn:active {
     background-color: #6e68a0;
@@ -91,7 +51,6 @@ body{
 .loginbox {
     width: 320px;
     height: 300px;
-    /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
     top: 55%;
@@ -106,7 +65,6 @@ body{
 .loginboxx{
     width: 1000px;
     height: 200px;
-    /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
     top: 50%;
@@ -121,7 +79,6 @@ body{
 .loginboxxx{
     width: 1050px;
     height: 400px;
-    /* background: transparent; */
     background: rgb(187, 208, 218);
     color: black;
     top: 55%;
@@ -207,7 +164,6 @@ input[type='password'] {
 
 select {
     color: black;
-    /* padding: 7px 7px; */
     font-size: 16px;
     background-color: rgb(159, 159, 182)
     ;
@@ -235,9 +191,7 @@ select {
 
 ul,
 li {
-    /* list-style: none; */
     -webkit-padding-start: 0;
-    /* background: transparent; */
 }
 
 .loginBtn{
@@ -290,7 +244,6 @@ a {
 .loginbox1 {
     width: 800px;
     height: 500px;
-    /* background: transparent; */
     background: rgb(5, 42, 59);
     color: black;
     top: 55%;
