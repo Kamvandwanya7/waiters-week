@@ -74,7 +74,7 @@ describe('My database tests', async function () {
     });
 
 
-    it('It should be able to determine if a day selected is available, fully-bookedor overbooked', async function () {
+    it('It should be able to determine if a day selected is available, fully-booked or overbooked', async function () {
         let waiterOutput = WaitersAvailability(db);
         await waiterOutput.setWaiterName("Sange", "zXc2");
         await waiterOutput.setWaiterName("Zona", "4X0r");
@@ -100,7 +100,6 @@ describe('My database tests', async function () {
                 state: "overbooked",
                 weekday: "Monday"
             },
-
 
             {
                 state: "fully-booked",

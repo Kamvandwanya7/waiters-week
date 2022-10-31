@@ -6,6 +6,7 @@ sudo -u postgres createdb waiters_tests;
 sudo -u postgres createuser kamvest -P;
 
 password kv112;
+kv199/119
 
 create table workers(
 	id serial not null primary key,
