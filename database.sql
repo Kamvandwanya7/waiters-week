@@ -16,8 +16,8 @@ create table admins(
     day_id integer
 
 
-    FOREIGN KEY (user_id) references workers(id),
-    FOREIGN KEY (day) references workdays(id)
+    -- FOREIGN KEY (user_id) references workers(id),
+    -- FOREIGN KEY (day) references workdays(id)
 
 );
 
