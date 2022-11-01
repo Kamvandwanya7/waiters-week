@@ -1,12 +1,3 @@
-sudo -u postgres createdb waiters;
-
-sudo -u postgres createdb waiters_tests;
-
-
-sudo -u postgres createuser kamvest -P;
-
-password kv112;
-kv199/119
 
 create table workers(
 	id serial not null primary key,
@@ -32,16 +23,25 @@ create table admins(
 
 INSERT INTO workdays(workday) values ('Monday'), ('Tuesday'), ('Wednesday'), ('Thursday'), ('Friday'), ('Saturday'), ('Sunday');
 
-INSERT INTO workers(username) values('kamva');
+-- INSERT INTO workers(username) values('kamva');
 
 
-SELECT workers.code AS codes FROM workers JOIN admins ON admins.user_id = workers.id;
+-- SELECT workers.code AS codes FROM workers JOIN admins ON admins.user_id = workers.id;
 
-alter table admins  alter column user_id type integer;
+-- alter table admins  alter column user_id type integer;
 
 
- rename column employee to user_id integer;
+--  rename column employee to user_id integer;
 
-UPDATE workers
-SET worday = tuesday ...
-WHERE code= 123;
+-- UPDATE workers
+-- SET worday = tuesday ...
+-- WHERE code= 123;
+-- sudo -u postgres createdb waiters;
+
+-- sudo -u postgres createdb waiters_tests;
+
+
+-- sudo -u postgres createuser kamvest -P;
+
+-- password kv112;
+-- kv199/119
