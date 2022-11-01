@@ -70,7 +70,10 @@ describe('My database tests', async function () {
         await waiterOutput.setWaiterName("Zona")
         await waiterOutput.setWaiterName("Sbahle")
 
-        assert.equal(null, await waiterOutput.deleteAllUsers());
+        await waiterOutput.deleteWaiters()
+        let results= await db.any('SELECT * FROM admins')
+        // console.log(results);
+        assert.deepEqual([], results);
     });
 
 

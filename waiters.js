@@ -48,6 +48,10 @@ module.exports = function WaitersAvailability(db) {
     return output;
   }
 
+  async function deleteWaiters(){
+      let output= await db.none('DELETE FROM admins')
+     
+  }
 
   async function joinUsers(week_days) {
     let output = await db.manyOrNone(`select workers.username, workdays.workday FROM admins
@@ -111,7 +115,8 @@ module.exports = function WaitersAvailability(db) {
     getDays,
     weekdays,
     userId,
-    allWorkers
+    allWorkers,
+    deleteWaiters
 
   }
 }
