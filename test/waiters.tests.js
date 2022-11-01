@@ -46,7 +46,7 @@ describe('My database tests', async function () {
     });
 
 
-    it('It should be able submit monday as a working day and return names of people who requested to work on monday', async function () {
+    it('It should be able determine the waiter name using the passcode', async function () {
         let waiterOutput = WaitersAvailability(db);
         await waiterOutput.setWaiterName("Mihle", "pH8F");
         // await waiterOutput.setWaiterName("Zompo", "yH8F");
