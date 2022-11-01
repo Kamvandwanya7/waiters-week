@@ -33,11 +33,11 @@ describe('My database tests', async function () {
 
         assert.deepEqual([
             {
-                username: "Zompo",
+                username: 'Mihle',
                 workday: 'Monday'
             },
             {
-                username: 'Mihle',
+                username: "Zompo",
                 workday: "Monday"
             }
 
