@@ -80,6 +80,11 @@ module.exports = function WaiterRoutes(waitersFunction) {
             }
         })
 
+        // if(day<3){
+        //     req.flash('error', `${user}! Please choose at least 3 days`)
+        // } else{
+
+        // }
 
         res.render('week', {
             user,
@@ -89,10 +94,18 @@ module.exports = function WaiterRoutes(waitersFunction) {
     }
     async function submitDay(req, res) {
         let workday = req.body.day;
+        // console.log(workday.length === 3)
         let user = req.params.name;
-        await waitersFunction.setWeekday(workday, user);
-        req.flash('success', "Thank you! Booking submitted successfully")
-        res.redirect('back')
+
+        if (workday.length >= 3) {
+            await waitersFunction.setWeekday(workday, user);
+            req.flash('success', `Thank you ${user}! Booking submitted successfully`)
+            res.redirect('back')
+        } else {
+            req.flash('error', `${user}! Please choose at least 3 days`)
+            res.redirect('back')
+
+        }
     }
 
     async function deleteAll(req, res) {

@@ -64,7 +64,7 @@ body {
 
 .loginboxx{
     width: 1000px;
-    height: 200px;
+    height: 270px;
     background: rgb(187, 208, 218);
     color: black;
     top: 50%;
@@ -267,7 +267,7 @@ h2 {
 }
 
 .success{
-    color: rgb(225, 240, 14);
+    color: rgb(33, 138, 42);
     font-size: 20px;
     font-weight: bold;
 }
@@ -290,7 +290,9 @@ input {
 
 }
 .error{
-    color: red;
+    color: rgb(197, 14, 51);
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 .successs{

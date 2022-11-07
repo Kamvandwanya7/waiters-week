@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>Waiters</title>
 </head>
 
@@ -16,37 +16,32 @@
 
     <div class="nav-container">
         <ul class="nav-items">
-           
+
             <a href="/logout"><button class="logBtn" type="submit">Logout</button></a>
-           
+
 
         </ul>
     </div>
     <h1>Waiter Availability</h1>
 
-    <div class="success">
-        {{messages.success}}
-    </div> <br>
-
-
-
-<div>
-
-</div>
-
-<br> <br>
+    {{!-- <div class="error">
+        {{messages.error}}
+    </div> --}}
     <div class="loginboxx">
+    <div>
+        <p class="success">{{messages.success}}</p>
+        <p class="error">{{messages.error}}</p>
         <form action="/waiters/{{user}}" method="post">
             <h3>{{output}}</h3>
-          
+
 
             {{#each week}}
-                <label class="days" for="">{{this.workday}}
-                    <input type="checkbox" value="{{this.workday}}" {{this.status}} name="day" >
-                </label>
+            <label class="days" for="">{{this.workday}}
+                <input type="checkbox" value="{{this.workday}}" {{this.status}} name="day">
+            </label>
             {{/each}}
 
-            
+
             <br> <br>
             <a href="/week"><button type="submit" class="logBtn">Schedule in</button></a>
 
